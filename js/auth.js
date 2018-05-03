@@ -3,7 +3,7 @@ const VK_VERSION = "5.76";
 
 
 class User {
-    User(first_name, last_name, id, photo) {
+    constructor(first_name, last_name, id, photo) {
         this.fn = first_name;
         this.ln = last_name;
         this.id = id;
@@ -23,6 +23,9 @@ class User {
         container.appendChild(credentials);
         container.appendChild(photo);
         return container;
+    }
+    toString() {
+        return `${this.fn} ${this.sn}`;
     }
 }
 
