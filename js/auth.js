@@ -54,7 +54,8 @@ function getLogin() {
             } else {
                 let btnContainer = document.getElementById("button-container");
                 let btn = document.createElement("button");
-                btn.addEventListener("click", () => VK.Auth.login(location.reload(), VK.access.FRIENDS));
+                btn.innerHTML = "Auth";
+                btn.addEventListener("click", () => VK.Auth.login(() => location.reload(), VK.access.FRIENDS));
                 btnContainer.appendChild(btn);
             }
         }
