@@ -18,7 +18,7 @@ class User {
         let container = this.createContainer("div", "container");
         let credentials = this.createContainer("span", "credentials");
         credentials.innerHtml(`${this.fn} ${this.ln}`);
-        let photo = this.createContainer("img", "profile-pic");
+        let photo = User.createContainer("img", "profile-pic");
         photo.src = this.photo;
         container.appendChild(credentials);
         container.appendChild(photo);
