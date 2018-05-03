@@ -19,7 +19,7 @@ class User {
         let credentials = User.createContainer("span", "credentials");
         credentials.innerHTML = `${this.fn} ${this.ln}`;
         let photo = User.createContainer("img", "profile-pic");
-        photo.src = this.photo;
+        photo.src = this.pl;
         container.appendChild(credentials);
         container.appendChild(photo);
         return container;
@@ -59,7 +59,6 @@ VK.Auth.getLoginStatus(
 function drawToContainer(containerId, userList) {
     let cont = document.getElementById(containerId);
     for (let i of userList) {
-        console.log(i);
         cont.appendChild(
             (new User(
                 i["first_name"],
