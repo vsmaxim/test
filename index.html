@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
+    <script type="text/javascript">
+    VK.init({
+        apiId: 6468225,
+    });
+</script>
 </head>
 <body>
-    <a href="https://oauth.vk.com/authorize?client_id=6468225&display=page&redirect_uri=https://vsmaxim.github.io/test/">
-        Authorize
-    </a>
+    <button onclick="VK.auth.login(resp_callback, VK.access.FRIENDS)">Auth</button>
+    <script>
+        function resp_callback(response) {
+            console.log(response.session);
+        }
+    </script>
 </body>
 </html>
