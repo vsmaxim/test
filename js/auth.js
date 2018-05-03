@@ -59,6 +59,7 @@ VK.Auth.getLoginStatus(
 function drawToContainer(containerId, userList) {
     let cont = document.getElementById(containerId);
     for (let i of userList) {
+        console.log(i);
         cont.appendChild(
             (new User(
                 i["first_name"],
