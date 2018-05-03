@@ -45,7 +45,7 @@ VK.Auth.getLoginStatus(
                     "v": VK_VERSION,
                     "fields": "photo_50",
                 },
-                (i) => drawToContainer("user-container", i.response)
+                (i) => drawToContainer("profile-container", i.response)
             );
         } else {
             VK.UI.button("button-container");
@@ -57,7 +57,7 @@ function drawToContainer(containerId, userList) {
     let cont = document.getElementById(containerId);
     for (let i of userList) {
         cont.appendChild(
-            User(
+            new User(
                 i["first_name"],
                 i["last_name"],
                 i["id"],
