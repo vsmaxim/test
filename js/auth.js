@@ -57,12 +57,12 @@ function drawToContainer(containerId, userList) {
     let cont = document.getElementById(containerId);
     for (let i of userList) {
         cont.appendChild(
-            new User(
+            (new User(
                 i["first_name"],
                 i["last_name"],
                 i["id"],
                 i["photo_50"],
-            )
+            )).asDiv()
         )
     }
 }
