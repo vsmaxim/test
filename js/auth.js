@@ -1,6 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => VK.Auth.getLoginStatus(
+VK.Auth.getLoginStatus(
     (resp) => {
         if (resp.status === "connected") {
             console.log("Hooray!");
@@ -8,5 +8,5 @@ document.addEventListener("DOMContentLoaded", () => VK.Auth.getLoginStatus(
             VK.UI.button("button-container");
         }
     }
-));
+);
 
