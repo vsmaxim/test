@@ -29,32 +29,38 @@ class User {
     }
 }
 
-VK.Auth.getLoginStatus(
-    (resp) => {
-        if (resp.status === "connected") {
-            VK.api(
-                "friends.get",
-                {
-                    "order": "hints",
-                    "count": 5,
-                    "fields": "photo_50",
-                    "v": "5.74",
-                },
-                (i) => drawToContainer("friends-container", i.response.items)
-            );
-            VK.api(
-                "users.get",
-                {
-                    "v": VK_VERSION,
-                    "fields": "photo_50",
-                },
-                (i) => drawToContainer("profile-container", i.response)
-            );
-        } else {
-            VK.UI.button("button-container");
+function getLogin() {
+    VK.Auth.getLoginStatus(
+        (resp) => {
+            if (resp.status === "connected") {
+                VK.api(
+                    "friends.get",
+                    {
+                        "order": "hints",
+                        "count": 5,
+                        "fields": "photo_50",
+                        "v": "5.74",
+                    },
+                    (i) => drawToContainer("friends-container", i.response.items)
+                );
+                VK.api(
+                    "users.get",
+                    {
+                        "v": VK_VERSION,
+                        "fields": "photo_50",
+                    },
+                    (i) => drawToContainer("profile-container", i.response)
+                );
+            } else {
+                let btnContainer = document.getElementById("button-container");
+                let btn = document.createElement("button");
+                btn.addEventListener("click", () => VK.Auth.login(location.reload(), VK.access.FRIENDS));
+                btnContainer.appendChild(btn);
+            }
         }
-    }
-);
+    );
+    
+}
 
 function drawToContainer(containerId, userList) {
     let cont = document.getElementById(containerId);
