@@ -76,3 +76,5 @@ function drawToContainer(containerId, userList) {
     }
 }
 
+getLogin();
+
